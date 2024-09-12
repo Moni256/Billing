@@ -1,0 +1,129 @@
+!<DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Billing</title>
+<link
+href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+rel="stylesheet"
+integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+crossorigin="anonymous"
+/>
+<script
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+crossorigin="anonymous"
+></script>
+<script src="billing.js"></script>
+</head>
+
+<body>
+<div class="container">
+<h1 style="margin-left: 35%;"><u>GROCERY BILLING</u></h1>
+<div class="row mt-4">
+<div class="col" style="font-size:larger; font-weight: 40px; color: rgb(234, 228, 231);"><u>Product ID</u></div>
+<div class="col" style="font-size:larger; font-weight: 40px; color: rgb(234, 228, 231);"><u>Product Name</u></div>
+<div class="col" style="font-size:larger; font-weight: 40px; color: rgb(234, 228, 231);"><u>Price</u></div>
+<div class="col" style="font-size:larger; font-weight: 40px; color: rgb(234, 228, 231);"><u>Count</u></div>
+<div class="col" style="font-size:larger; font-weight: 40px; color: rgb(234, 228, 231);"><u>Total</u></div>
+<div class="col" style="font-size:larger; font-weight: 40px; color: rgb(234, 228, 231);"><u>Actions</u></div>
+</div>
+<div class="row mt-4">
+<div class="col">
+<input
+type="text"
+id="pId"
+name="pId"
+class="form-control"
+readonly
+/>
+</div>
+
+<div class="col">
+<select
+id="pName"
+name="pName"
+class="form-select"
+onchange="getProductDetail()"
+>
+<option>Rice</option>
+<option>Oil</option>
+<option>Ghee</option>
+<option>Soap</option>
+<option>Detergents</option>
+<option>Shampoo</option>
+<option>Toothpaste</option>
+<option>Pickles</option>
+<option>Pooja Products</option>
+<option>Cookies</option>
+<option>Ice creams</option>
+<option>Cooldrinks</option>
+<option>Masala</option>
+<option>Chocolates</option>
+<option>Nuts</option>
+<option>Vegetables</option>
+<option>Fruits</option>
+<option>Milk Products</option>
+</select>
+</div>
+<div class="col">
+<input
+type="text"
+id="pPrice"
+name="pPrice"
+class="form-control"
+onkeyup="calcTotal()"
+readonly
+/>
+</div>
+
+<div class="col">
+<input
+type="text"
+id="pCount"
+name="pCount"
+class="form-control"
+onkeyup="calcTotal()"
+/>
+</div>
+
+<div class="col">
+<input
+type="text"
+id="pTotal"
+name="pTotal"
+class="form-control"
+readonly
+/>
+</div>
+
+<div class="col">
+<button type="button" class="btn btn-success" onclick="addProduct()">
+Add Product
+</button>
+</div>
+</div>
+
+<div id="productsDisplay"></div>
+</div>
+
+</body>
+</html>
+<style>
+    .container{
+        background-image: linear-gradient(to right top,#d16ba5, #c777b9,#ba83ca,
+                                                       #aa8fd8,#9a9ae1,#8aa7ec,
+                                                       #99b3f4,#69bff8,#52cffe,
+                                                       #41dfff,#46eefa,#5ffbf1);
+        border-radius: 20px;
+        border: 4px solid black;
+
+    }
+    body{
+        background: linear-gradient(to bottom,#000066 0%,#cc3399 100% );
+        border: 4px ridge rgb(173, 25, 134);
+        border-radius: 45px;
+    }
+    
+</style>
